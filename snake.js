@@ -94,7 +94,7 @@ function game() {
         state.xApple = Math.floor(Math.random()*state.gameSize);
         state.yApple = Math.floor(Math.random()*state.gameSize);
     }
-    ctx.fillStyle="red";
+    ctx.fillStyle="orange";
     ctx.fillRect(state.xApple*state.gameSize,state.yApple*state.gameSize,state.gameSize-2,state.gameSize-2);
     document.getElementById("state.score").innerHTML = "state.score: " + state.score;
     document.getElementById("genCount").innerHTML = "Current Generation: " + state.currGen;
