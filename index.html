@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- HTML5 declaration -->
+<html lang="en"> <!-- HTML document start, language English -->
 
-<head>
-  <meta charset="UTF-8">
-  <title>Snake</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"> </script>
-
-
-  <link rel="stylesheet" href="style.css">
-
-
+<head> <!-- Head start, contains meta-info -->
+  <meta charset="UTF-8"> <!-- Defines character encoding -->
+  <title>Snake</title> <!-- Document title -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"> </script> <!-- Imports TensorFlow.js -->
+  <link rel="stylesheet" href="style.css"> <!-- Links to CSS file for styling -->
 </head>
 
-<body>
-
-  <h2 id="h2">neuroSnake<h2>
-      <canvas id="canvas" width="400" height="400"></canvas>
-      <div id="score"></div>
-      <div id="highScore"></div>
-      <div id="genCount"></div>
-      <script src="snake.js"></script>
-      <script src="tfmodel.js"></script>
-
+<body> <!-- Body start, contains document content -->
+  <h2 id="h2">neuroSnake<h2> <!-- Header, labeled "neuroSnake" -->
+  <canvas id="canvas" width="400" height="400"></canvas> <!-- Canvas for drawing game -->
+  <div id="state.score"></div> <!-- Placeholder for score -->
+  <div id="state.highScore"></div> <!-- Placeholder for high score -->
+  <div id="genCount"></div> <!-- Placeholder for generation count -->
+  <script src="snake.js"></script> <!-- Imports game logic -->
+  <script src="tfmodel.js"></script> <!-- Imports TensorFlow.js model -->
 </body>
 
 </html>
