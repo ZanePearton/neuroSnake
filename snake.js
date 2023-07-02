@@ -1,24 +1,3 @@
-// var state.xPos = 10;
-// var state.yPos = 10;
-// var state.gameSize = 20;
-// var state.xAccel = 15;
-// var state.yAccel = 15;
-// var state.xVel = 0;
-// var state.yVel = 0;
-// var state.trail=[];
-// var state.setTail = 10;
-// var state.tail = state.setTail;
-// var state.score = 0;
-// var state.highScore = 0;
-// var state.speedDifficulty = 75;
-// var state.moveRecord = [];
-// var state.currGen = 0;
-// var state.gameRunning = true;
-// var state.direction = ['left', 'forward', 'right'];
-// var state.xApple = Math.floor(Math.random()*state.gameSize);
-// var state.yApple = Math.floor(Math.random()*state.gameSize);
-// var state.loopsSinceApple = 0;
-
 var state = {
   xPos: 10,
   yPos: 10,
@@ -157,19 +136,6 @@ function resetGame() {
    state.moveRecord = [];
 }
 
-/*
-* Gets current position of snake as well as current position of the apple
-* and returns an array of the relative x and y position
-* NOTE: X AND Y ARE RELATIVE, THEY CHANGE BASED ON SNAKE state.direction
-* @returns Array
-// arr[0]: left of snake
-// arr[1]: front of snake
-// arr[2]: right of snake
-* arr[3] (x) and arr[4] (y) return the following respectively
-* -1: apple is negative state.direction (x or y)
-* 0: apple is at same position (x or y)
-* 1: apple is positive state.direction (x or y)
-*/
 function getPosArr() {
   var arr = [0,0,0];
   var relApple = [0,0];
@@ -374,22 +340,7 @@ function getPosArr() {
   //console.log("(" + state.xVel + "," + state.yVel + ")");
   return arr;
 }
-/*
-* Takes in data that is input into the model during training and returns the
-* expected response from a prediction.
-* @params arr describing surroundings
-* arr[0]: if 1 something is to the left
-* arr[1]: if 1 something is forward
-* arr[2]: if 1 something is to the right
-* NOTE: X AND Y ARE RELATIVE, THEY CHANGE BASED ON SNAKE state.direction
-* NOTE 2: This function is only for training data, this is not for hardcoding snake behavior
-* arr[3]: if -1 apple is in negative x state.direction, 0 is at same x state.direction, 1 positive x state.direction
-* arr[4]: if -1 apple is in negative y state.direction, 0 is at same y state.direction, 1 positive y state.direction
-* @return state.direction to move
-* 0: Turn left
-* 1: Go forward
-* 2: Turn Right
-*/
+
 function getExpected(arr) {
   // If there is an object left and forward move right
   if ( arr[0] == 1 && arr[1] == 1) {
@@ -447,69 +398,4 @@ function getExpected(arr) {
   } else {
     return 2;
   }
-
-
-
-
-
-
-
-  /*
-  // If snake has object to left and state.xApple is -1
-} else if (arr[0] == 1 && (arr[3] == -1 || arr[3] == 0)) {
-    // Move forward if state.yApple is left or forward
-    if ( arr[4] == 1 || arr[4] == 0) {
-      return 1;
-    // Move left if state.yApple is left
-    } else {
-      return 2;
-    }
-  // If snake has object to the left and state.xApple is right
-  } else if (arr[0] == 1 && arr[3] == 1) {
-      // Move right if state.yApple is left or forward
-      if ( arr[4] == 1 || arr[4] == 0) {
-        return 2;
-      } else {
-        return 1;
-      }
-  // If snake has object forward and state.xApple left or foward go left
-  } else if (arr[1] == 1 && (arr[3] == -1 || arr[3] == 0)) {
-    return 0;
-  // If snake has object forward and state.xApple is right go right
-  } else if (arr[1] == 1 && arr[3] == 1) {
-    return 2;
-  // If snake has object right and state.xApple is left
-  } else if (arr[2] == 1 && arr[3] == -1) {
-    // If state.yApple is left or right move forward
-    if ( arr[4] == -1 || arr[4] == 1) {
-      return 1;
-    // If state.yApple is forward move left
-    } else {
-      return 0;
-    }
-  // If snake has object right and state.xApple is forward
-  } else if (arr[2] == 1 && arr[3] == 0) {
-    // If snake has apple to the left move left
-    if (arr[4] == -1) {
-      return 0;
-    // else move forward
-    } else {
-      return 1;
-    }
-  // If snake has no objects around it and state.xApple is left move left
-  } else if (arr[3] == -1) {
-    return 0;
-  // If snake has no objects around it and state.xApple is forward
-  } else if (arr[3] == 0) {
-    // If state.yApple is negative move left (by convention)
-    if ( arr[4] == 1) {
-      return 0;
-    // Else move forward
-    } else {
-      return 1;
-    }
-  // If snake has no objects around it and state.xApple is right move right
-  } else {
-    return 2;
-  }*/
 }
